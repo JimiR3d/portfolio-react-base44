@@ -164,19 +164,19 @@ export default function Projects() {
                         width: '5px',
                         height: '5px',
                         borderRadius: '50%',
-                        backgroundColor: '#00D4AA',
-                        boxShadow: '0 0 5px #00D4AA',
+                        backgroundColor: project.status === 'IN PROGRESS' ? '#FFB800' : '#00D4AA',
+                        boxShadow: `0 0 5px ${project.status === 'IN PROGRESS' ? '#FFB800' : '#00D4AA'}`,
                       }}
                     />
                     <span
                       style={{
                         fontFamily: 'DM Mono, monospace',
                         fontSize: '0.6rem',
-                        color: '#00D4AA',
+                        color: project.status === 'IN PROGRESS' ? '#FFB800' : '#00D4AA',
                         letterSpacing: '0.1em',
                       }}
                     >
-                      ACTIVE
+                      {project.status || 'ACTIVE'}
                     </span>
                   </div>
                 </div>

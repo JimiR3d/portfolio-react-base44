@@ -36,9 +36,9 @@ const TIMELINE = [
     note: 'Deployed Microsoft Dynamics NAV/BC for enterprise clients',
   },
   {
-    period: '2019 – 2023',
+    period: '2020 – 2024',
     role: 'B.Sc. Computer Science',
-    org: 'Nigeria',
+    org: 'Covenant University, Nigeria',
     note: 'Foundation in algorithms, data structures, and software engineering',
   },
 ];

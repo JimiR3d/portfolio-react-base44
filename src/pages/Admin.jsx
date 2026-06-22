@@ -104,6 +104,7 @@ function EditModal({ project, onSave, onClose, isLight }) {
     techTags: (project?.techTags || []).join(', '),
     githubUrl: project?.githubUrl || '',
     liveUrl: project?.liveUrl || '',
+    status: project?.status || 'ACTIVE',
     displayOrder: project?.displayOrder ?? 0,
     visible: project?.visible !== false,
   });
@@ -189,7 +190,7 @@ function EditModal({ project, onSave, onClose, isLight }) {
             />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
             <div>
               <label style={{ display: 'block', fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: '#888', letterSpacing: '0.1em', marginBottom: '0.4rem' }}>
                 [DISPLAY ORDER]
@@ -200,6 +201,24 @@ function EditModal({ project, onSave, onClose, isLight }) {
                 value={form.displayOrder}
                 onChange={e => setForm(f => ({ ...f, displayOrder: Number(e.target.value) }))}
               />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: '#888', letterSpacing: '0.1em', marginBottom: '0.4rem' }}>
+                [STATUS]
+              </label>
+              <button
+                onClick={() => setForm(f => ({ ...f, status: f.status === 'ACTIVE' ? 'IN PROGRESS' : 'ACTIVE' }))}
+                style={{
+                  ...inputStyle,
+                  width: '100%',
+                  cursor: 'none',
+                  color: form.status === 'ACTIVE' ? '#00D4AA' : '#FFB800',
+                  borderColor: form.status === 'ACTIVE' ? '#00D4AA' : '#FFB800',
+                  textAlign: 'left',
+                }}
+              >
+                {form.status}
+              </button>
             </div>
             <div>
               <label style={{ display: 'block', fontFamily: 'DM Mono, monospace', fontSize: '0.6rem', color: '#888', letterSpacing: '0.1em', marginBottom: '0.4rem' }}>
@@ -313,6 +332,7 @@ export default function Admin() {
       techTags: form.techTags.split(',').map(t => t.trim()).filter(Boolean),
       githubUrl: form.githubUrl,
       liveUrl: form.liveUrl,
+      status: form.status,
       displayOrder: form.displayOrder,
       visible: form.visible,
     };

@@ -145,49 +145,6 @@ export default function Contact() {
         })}
       </div>
 
-      {/* Resume — bottom right */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-          gap: '0.75rem',
-          marginTop: '3rem',
-          paddingTop: '2rem',
-          borderTop: `1px solid ${borderColor}`,
-        }}
-      >
-        <label
-          htmlFor="resume-upload"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            fontFamily: 'DM Mono, monospace',
-            fontSize: '0.65rem',
-            letterSpacing: '0.1em',
-            color: resumeFile ? '#00D4AA' : mutedColor,
-            cursor: 'none',
-            transition: 'color 0.2s ease',
-            userSelect: 'none',
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#00D4AA'}
-          onMouseLeave={e => e.currentTarget.style.color = resumeFile ? '#00D4AA' : mutedColor}
-        >
-          <Paperclip size={10} />
-          {resumeFile ? resumeFile.name : 'ATTACH RESUME // CV'}
-        </label>
-        <input
-          id="resume-upload"
-          type="file"
-          accept=".pdf,.doc,.docx"
-          style={{ display: 'none' }}
-          onChange={e => e.target.files?.[0] && setResumeFile(e.target.files[0])}
-        />
-      </motion.div>
     </div>
   );
 }

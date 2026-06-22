@@ -146,8 +146,7 @@ export default function Home() {
             marginBottom: '3rem',
           }}
         >
-          Building automated data pipelines for African financial institutions.
-          Specialising in Basel III compliance, CBN regulatory reporting, and
+          Data Analyst. Specialising in Basel III compliance, CBN regulatory reporting, and
           financial analytics. Based in Lagos, Nigeria.
         </motion.p>
 

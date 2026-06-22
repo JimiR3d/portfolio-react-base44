@@ -182,7 +182,7 @@ export default function Projects() {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '2rem' }}>
-                  {project.liveUrl && (
+                  {project.liveUrl ? (
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -211,8 +211,8 @@ export default function Projects() {
                     >
                       LIVE DEMO <ArrowUpRight size={10} />
                     </a>
-                  )}
-                  {project.githubUrl && (
+                  ) : null}
+                  {project.githubUrl ? (
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -241,7 +241,7 @@ export default function Projects() {
                     >
                       GITHUB <ArrowUpRight size={10} />
                     </a>
-                  )}
+                  ) : null}
                 </div>
               </div>
             </motion.div>

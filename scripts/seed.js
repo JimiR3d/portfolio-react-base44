@@ -6,10 +6,10 @@ const sql = neon(process.env.DATABASE_URL);
 const seedProjects = [
   {
     name: 'QUIDAX DASHBOARD',
-    description: 'A comprehensive B2B dashboard for Quidax.',
+    description: 'An interactive, data-driven B2B intelligence dashboard built for Quidax, featuring live market data and strategic growth opportunities.',
     techTags: ['React', 'Node.js'],
-    githubUrl: 'https://github.com/JimiR3d/quidax-b2b-dashboard',
-    liveUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/Quidax-Dashboard',
+    liveUrl: 'https://quidax-b2b-dashboard.vercel.app/',
     visible: true
   },
   {
@@ -24,15 +24,15 @@ const seedProjects = [
     name: 'JOBPULSE',
     description: 'JobPulse aggregates remote jobs from 60+ boards and company career pages, scores them against your profile using AI, filters out geo-restricted and overqualified roles, and alerts you on Telegram when something genuinely worth your time drops.',
     techTags: ['AI', 'Data Scraping', 'Telegram API'],
-    githubUrl: null,
-    liveUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/jobpulse',
+    liveUrl: 'https://jobpulse-woad.vercel.app',
     visible: true
   },
   {
     name: 'REGULATORY REPORT GENERATOR',
     description: 'Work in Progress',
     techTags: ['Data Engineering', 'Python'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/regulatory-report-generator',
     liveUrl: null,
     visible: true
   },
@@ -40,7 +40,7 @@ const seedProjects = [
     name: 'EAZY HOME',
     description: 'A platform simplifying real estate search and management.',
     techTags: ['React', 'Supabase'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/eazyhome_v2',
     liveUrl: null,
     visible: true
   },
@@ -48,7 +48,7 @@ const seedProjects = [
     name: 'QUIDAX MARKET ANALYTICS',
     description: 'Work in Progress',
     techTags: ['Data Analysis', 'Python'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/quidax-market-analytics',
     liveUrl: null,
     visible: true
   },
@@ -56,7 +56,7 @@ const seedProjects = [
     name: 'OIL GAS DATA PIPELINE',
     description: 'Work in Progress',
     techTags: ['Data Pipeline', 'SQL'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/oil-gas-data-pipeline',
     liveUrl: null,
     visible: true
   },
@@ -64,7 +64,7 @@ const seedProjects = [
     name: 'BASEL 3 DASHBOARD',
     description: 'Work in Progress',
     techTags: ['Data Visualization', 'Finance'],
-    githubUrl: null,
+    githubUrl: 'https://github.com/JimiR3d/basel3-dashboard',
     liveUrl: null,
     visible: true
   }

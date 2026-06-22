@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
@@ -17,11 +15,14 @@ export default function Projects() {
   const textColor = isLight ? '#0A0A0A' : '#F5F5F5';
 
   useEffect(() => {
-    db.entities.Project.list('displayOrder', 50)
+    fetch('/api/projects')
+      .then(r => r.json())
       .then(data => {
+        if (!Array.isArray(data)) return;
         const visible = data.filter(p => p.visible !== false);
         setProjects(visible);
       })
+      .catch(console.error)
       .finally(() => setLoading(false));
   }, []);
 

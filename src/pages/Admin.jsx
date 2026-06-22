@@ -1,5 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
-
 import React, { useEffect, useState, useRef } from 'react';
 
 import { useTheme } from '@/lib/ThemeContext';
@@ -284,8 +282,12 @@ export default function Admin() {
 
   const loadProjects = () => {
     setLoading(true);
-    db.entities.Project.list('displayOrder', 50)
-      .then(setProjects)
+    fetch('/api/projects')
+      .then(r => r.json())
+      .then(data => {
+        if (Array.isArray(data)) setProjects(data);
+      })
+      .catch(console.error)
       .finally(() => setLoading(false));
   };
 
@@ -312,10 +314,18 @@ export default function Admin() {
       visible: form.visible,
     };
     if (editingProject?.id) {
-      await db.entities.Project.update(editingProject.id, payload);
+      await fetch('/api/projects', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: editingProject.id, password: pwInput, ...payload })
+      });
       showToast(`SYS.LOG: ${form.name.toUpperCase().replace(/ /g,'_')} UPDATED // SUCCESS`);
     } else {
-      await db.entities.Project.create(payload);
+      await fetch('/api/projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pwInput, ...payload })
+      });
       showToast(`SYS.LOG: NEW PROJECT CREATED // SUCCESS`);
     }
     setEditingProject(null);
@@ -324,7 +334,11 @@ export default function Admin() {
   };
 
   const handleDelete = async (project) => {
-    await db.entities.Project.delete(project.id);
+    await fetch('/api/projects', {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: project.id, password: pwInput })
+    });
     setDeletingProject(null);
     showToast(`SYS.LOG: ${project.name.toUpperCase().replace(/ /g,'_')} DROPPED // REMOVED`, 'error');
     loadProjects();

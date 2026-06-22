@@ -17,6 +17,7 @@ export default async function handler(req, res) {
         description: p.description,
         techTags: p.tech_tags,
         githubUrl: p.github_url,
+        liveUrl: p.live_url,
         displayOrder: p.display_order,
         visible: p.visible,
       }));
@@ -28,8 +29,8 @@ export default async function handler(req, res) {
       if (password !== process.env.ADMIN_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
 
       await sql`
-        INSERT INTO portfolio_projects (name, description, tech_tags, github_url, display_order, visible)
-        VALUES (${payload.name}, ${payload.description}, ${payload.techTags || []}, ${payload.githubUrl}, ${payload.displayOrder || 0}, ${payload.visible ?? true})
+        INSERT INTO portfolio_projects (name, description, tech_tags, github_url, live_url, display_order, visible)
+        VALUES (${payload.name}, ${payload.description}, ${payload.techTags || []}, ${payload.githubUrl || null}, ${payload.liveUrl || null}, ${payload.displayOrder || 0}, ${payload.visible ?? true})
       `;
       return res.status(200).json({ ok: true });
     }
@@ -41,7 +42,7 @@ export default async function handler(req, res) {
       await sql`
         UPDATE portfolio_projects 
         SET name = ${payload.name}, description = ${payload.description}, tech_tags = ${payload.techTags || []}, 
-            github_url = ${payload.githubUrl}, display_order = ${payload.displayOrder}, visible = ${payload.visible},
+            github_url = ${payload.githubUrl || null}, live_url = ${payload.liveUrl || null}, display_order = ${payload.displayOrder}, visible = ${payload.visible},
             updated_at = NOW()
         WHERE id = ${id}
       `;

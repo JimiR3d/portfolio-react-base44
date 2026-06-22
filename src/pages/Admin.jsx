@@ -103,6 +103,7 @@ function EditModal({ project, onSave, onClose, isLight }) {
     description: project?.description || '',
     techTags: (project?.techTags || []).join(', '),
     githubUrl: project?.githubUrl || '',
+    liveUrl: project?.liveUrl || '',
     displayOrder: project?.displayOrder ?? 0,
     visible: project?.visible !== false,
   });
@@ -162,6 +163,7 @@ function EditModal({ project, onSave, onClose, isLight }) {
           {[
             { key: 'name', label: 'PROJECT NAME' },
             { key: 'githubUrl', label: 'GITHUB URL' },
+            { key: 'liveUrl', label: 'LIVE URL' },
             { key: 'techTags', label: 'TECH TAGS (comma-separated)' },
           ].map(({ key, label }) => (
             <div key={key}>
@@ -310,6 +312,7 @@ export default function Admin() {
       description: form.description,
       techTags: form.techTags.split(',').map(t => t.trim()).filter(Boolean),
       githubUrl: form.githubUrl,
+      liveUrl: form.liveUrl,
       displayOrder: form.displayOrder,
       visible: form.visible,
     };

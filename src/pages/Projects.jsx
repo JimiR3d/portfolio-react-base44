@@ -181,35 +181,68 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    padding: '0.5rem 1rem',
-                    border: `1px solid ${borderColor}`,
-                    fontFamily: 'DM Mono, monospace',
-                    fontSize: '0.62rem',
-                    letterSpacing: '0.1em',
-                    color: isLight ? '#0A0A0A' : '#F5F5F5',
-                    textDecoration: 'none',
-                    transition: 'border-color 0.2s ease, color 0.2s ease',
-                    marginTop: '2rem',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.borderColor = '#00D4AA';
-                    e.currentTarget.style.color = '#00D4AA';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.borderColor = borderColor;
-                    e.currentTarget.style.color = isLight ? '#0A0A0A' : '#F5F5F5';
-                  }}
-                >
-                  GITHUB <ArrowUpRight size={10} />
-                </a>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginTop: '2rem' }}>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        padding: '0.5rem 1rem',
+                        border: `1px solid ${borderColor}`,
+                        fontFamily: 'DM Mono, monospace',
+                        fontSize: '0.62rem',
+                        letterSpacing: '0.1em',
+                        color: isLight ? '#0A0A0A' : '#F5F5F5',
+                        textDecoration: 'none',
+                        transition: 'border-color 0.2s ease, color 0.2s ease',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = '#00D4AA';
+                        e.currentTarget.style.color = '#00D4AA';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = borderColor;
+                        e.currentTarget.style.color = isLight ? '#0A0A0A' : '#F5F5F5';
+                      }}
+                    >
+                      LIVE DEMO <ArrowUpRight size={10} />
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        padding: '0.5rem 1rem',
+                        border: `1px solid ${borderColor}`,
+                        fontFamily: 'DM Mono, monospace',
+                        fontSize: '0.62rem',
+                        letterSpacing: '0.1em',
+                        color: isLight ? '#0A0A0A' : '#F5F5F5',
+                        textDecoration: 'none',
+                        transition: 'border-color 0.2s ease, color 0.2s ease',
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = '#00D4AA';
+                        e.currentTarget.style.color = '#00D4AA';
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = borderColor;
+                        e.currentTarget.style.color = isLight ? '#0A0A0A' : '#F5F5F5';
+                      }}
+                    >
+                      GITHUB <ArrowUpRight size={10} />
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

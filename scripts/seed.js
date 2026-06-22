@@ -18,7 +18,7 @@ const seedProjects = [
     description: 'This project is an AI-powered customer support dashboard designed to intercept and classify messages from a Telegram community group in real-time. It uses Groq for rapid message classification and Gemini 3.1 Pro to generate professional suggested replies for your human agents.',
     techTags: ['Groq', 'Gemini', 'Node.js', 'Telegram API'],
     githubUrl: 'https://github.com/JimiR3d/Quidax-Telegram-gemini',
-    liveUrl: null,
+    liveUrl: 'https://quidax-telegram-gemini-production.up.railway.app/',
     status: 'ACTIVE',
     visible: true
   },

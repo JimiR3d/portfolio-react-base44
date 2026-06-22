@@ -1,0 +1,33 @@
+{
+  "name": "Project",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "techTags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "githubUrl": {
+      "type": "string"
+    },
+    "displayOrder": {
+      "type": "number"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "githubUrl"
+  ]
+}

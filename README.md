@@ -1,41 +1,67 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
+# Oluwafolajinmi Aboderin — Portfolio
 
-**Welcome to your Base44 project** 
+My personal portfolio site — a fast, animated single-page app showcasing my work as an AI Engineer, Full-Stack Developer, and Data Analyst.
 
-**About**
+🔗 **Live:** [oluwafolajinmi-aboderin.vercel.app](https://oluwafolajinmi-aboderin.vercel.app/)
 
-View and Edit  your app on [db.com](http://db.com) 
+---
 
-This project contains everything you need to run your app locally.
+## Tech stack
 
-**Edit the code in your local development environment**
+- **Framework:** React 18 + Vite
+- **Styling:** Tailwind CSS + shadcn/ui (Radix UI primitives)
+- **Animation:** Framer Motion · Three.js
+- **Data viz:** Recharts
+- **Backend:** Neon (serverless Postgres) behind a small Vercel API route
+- **Hosting:** Vercel
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+The projects shown on the site aren't hardcoded — they're served from a Neon
+Postgres table through `api/projects.js`, with a password-protected admin
+endpoint for adding and editing entries.
 
-**Prerequisites:** 
+---
 
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
+## Running locally
 
+```bash
+# 1. Clone the repo
+git clone https://github.com/JimiR3d/oluwafolajinmi-aboderin-portfolio.git
+cd oluwafolajinmi-aboderin-portfolio
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the dev server
+npm run dev
 ```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
 
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.db.app
-```
+The app runs on [http://localhost:5173](http://localhost:5173) by default.
 
-Run the app: `npm run dev`
+### Environment variables
 
-**Publish your changes**
+The projects API needs these set (locally in a `.env` file, or in your Vercel
+project settings):
 
-Open [db.com](http://db.com) and click on Publish.
+| Variable | Purpose |
+|----------|---------|
+| `DATABASE_URL` | Neon serverless Postgres connection string |
+| `ADMIN_PASSWORD` | Password guarding the admin create/update/delete routes |
 
-**Docs & Support**
+## Scripts
 
-Documentation: [https://docs.db.com/Integrations/Using-GitHub](https://docs.db.com/Integrations/Using-GitHub)
+| Command | What it does |
+|---------|--------------|
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint |
 
-Support: [https://app.db.com/support](https://app.db.com/support)
+---
+
+## About
+
+Built and maintained by **Oluwafolajinmi Aboderin**.
+
+- 🌐 [Live site](https://oluwafolajinmi-aboderin.vercel.app/)
+- 📧 [folajinmi13@gmail.com](mailto:folajinmi13@gmail.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/oluwafolajinmi-aboderin-695848249/)
